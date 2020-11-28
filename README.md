@@ -31,6 +31,6 @@ AnyTab(
   ),
 ),
 ```
-![circular.gif](https://github.com/wuweijian1997/any_tab/blob/main/circular.gif)
-![fragments.gif](https://github.com/wuweijian1997/any_tab/blob/main/fragments.gif)
-![size.gif](https://github.com/wuweijian1997/any_tab/blob/main/size.gif)
+![circular.gif](https://github.com/wuweijian1997/any_tab/blob/main/example/circular.gif)
+![fragments.gif](https://github.com/wuweijian1997/any_tab/blob/main/example/fragments.gif)
+![size.gif](https://github.com/wuweijian1997/any_tab/blob/main/example/size.gif)
