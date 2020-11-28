@@ -1,3 +1,3 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - 2020/11/28
 
-* TODO: Describe initial release.
+* Flutter any tab 0.0.1.

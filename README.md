@@ -3,12 +3,34 @@
 Flutter any tab.
 
 ## Getting Started
+### Install
+```
+dependencies:
+  any_tab: ^0.0.1
+```
+### Use
+> See example for details
+```
+AnyTabController anyTabController;
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+@override
+void initState() {
+  super.initState();
+  anyTabController = AnyTabController(vsync: this, length: 3);
+}
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+AnyTab(
+  anyTabController: anyTabController,
+  anyTabDelegate: CircularAnyTabDelegate(
+    tabs: [
+      for (AnyTabModel model in pages)
+        AnyTabItem(
+          model: model,
+        ),
+    ],
+  ),
+),
+```
+![circular.gif](https://github.com/wuweijian1997/any_tab/blob/main/circular.gif)
+![fragments.gif](https://github.com/wuweijian1997/any_tab/blob/main/fragments.gif)
+![size.gif](https://github.com/wuweijian1997/any_tab/blob/main/size.gif)
