@@ -1,6 +1,6 @@
 name: any_tab
 description: Flutter any tab.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/wuweijian1997/any_tab
 
 environment:
@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_fragments: ^0.0.6
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,6 @@
 import 'package:any_tab/any_tab.dart';
 import 'package:example/const/const.dart';
+import 'package:example/delegate/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fragments/flutter_fragments.dart';
 import '../model/index.dart';

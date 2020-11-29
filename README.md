@@ -6,7 +6,7 @@ Flutter any tab.
 ### Install
 ```
 dependencies:
-  any_tab: ^0.0.1
+  any_tab: ^0.0.2
 ```
 ### Use
 > See example for details
