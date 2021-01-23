@@ -21,6 +21,7 @@ class AnyTabController with TabSlideStatusListenerMixin {
   int _length;
   int _index;
   int _nextPageIndex;
+  bool _isNextPage = true;
   SlideDirection _slideDirection = SlideDirection.none;
 
   ///拖动开始的坐标
@@ -38,6 +39,7 @@ class AnyTabController with TabSlideStatusListenerMixin {
   int get nextPageIndex => _nextPageIndex;
 
   int get length => _length;
+  bool get isNextPage => _isNextPage;
 
   Animation get animation => _animationController.view;
 
@@ -116,8 +118,10 @@ class AnyTabController with TabSlideStatusListenerMixin {
     _slideDirection = slideUpdate.direction;
     if (_slideDirection == SlideDirection.leftToRight) {
       _nextPageIndex = previousPage;
+      _isNextPage = false;
     } else if (_slideDirection == SlideDirection.rightToLeft) {
       _nextPageIndex = nextPage;
+      _isNextPage = true;
     } else {
       _nextPageIndex = index;
     }

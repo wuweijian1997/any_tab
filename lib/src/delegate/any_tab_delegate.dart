@@ -13,5 +13,6 @@ abstract class AnyTabDelegate {
     int nextPageIndex,
     Animation animation,
     Offset startingOffset,
+    bool isNextPage,
   );
 }

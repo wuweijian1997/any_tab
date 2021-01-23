@@ -11,19 +11,17 @@ class SizeAnyTabDelegate extends AnyTabDelegate {
     int nextPageIndex,
     Animation animation,
     Offset startingOffset,
+    bool isNextPage,
   ) {
     return Stack(
       children: [
         tabs[activeIndex],
         SlideTransition(
           position: animation.drive(Tween<Offset>(
-            begin: Offset(1, 1),
+            begin: Offset(isNextPage == true ? 1 : -1, 0),
             end: Offset.zero,
           )),
-          child: SizeTransition(
-            sizeFactor: animation,
-            child: tabs[nextPageIndex],
-          ),
+          child: tabs[nextPageIndex],
         )
       ],
     );

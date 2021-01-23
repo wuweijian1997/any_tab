@@ -43,6 +43,7 @@ class _AnyTabState extends State<AnyTab>
         _anyTabController.nextPageIndex,
         _anyTabController.animation,
         _anyTabController.dragStartOffset,
+        _anyTabController.isNextPage,
       ),
     );
   }

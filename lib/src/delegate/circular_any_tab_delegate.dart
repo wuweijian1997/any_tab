@@ -8,8 +8,14 @@ class CircularAnyTabDelegate extends AnyTabDelegate {
         super(tabs: tabs);
 
   @override
-  Widget build(BuildContext context, int activeIndex, int nextPageIndex,
-      Animation animation, Offset startingOffset) {
+  Widget build(
+    BuildContext context,
+    int activeIndex,
+    int nextPageIndex,
+    Animation animation,
+    Offset startingOffset,
+    bool isNextPage,
+  ) {
     assert(activeIndex >= 0 && activeIndex < tabs.length);
     assert(nextPageIndex >= 0 && nextPageIndex < tabs.length);
     return Stack(
