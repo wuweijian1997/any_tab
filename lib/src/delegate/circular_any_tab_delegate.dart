@@ -3,8 +3,8 @@ import 'package:any_tab/src/clipper/index.dart';
 import 'package:flutter/material.dart';
 
 class CircularAnyTabDelegate extends AnyTabDelegate {
-  CircularAnyTabDelegate({@required List<Widget> tabs})
-      : assert(tabs != null && tabs.length > 0),
+  CircularAnyTabDelegate({required List<Widget> tabs})
+      : assert(tabs.length > 0),
         super(tabs: tabs);
 
   @override

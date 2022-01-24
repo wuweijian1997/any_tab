@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 abstract class AnyTabDelegate {
   List<Widget> tabs;
 
-  AnyTabDelegate({@required this.tabs});
+  AnyTabDelegate({required this.tabs});
 
   int get length => tabs.length;
 

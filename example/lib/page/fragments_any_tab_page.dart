@@ -16,18 +16,18 @@ class FragmentsAnyTabPage extends StatefulWidget {
 
 class _FragmentsAnyTabPageState extends State<FragmentsAnyTabPage>
     with SingleTickerProviderStateMixin {
-  AnyTabController anyTabController;
+  late AnyTabController anyTabController;
   ScreenshotController screenShotController = ScreenshotController();
 
   @override
   void initState() {
-    super.initState();
     anyTabController = AnyTabController(vsync: this, length: 3);
     anyTabController.addStatusListener((status) {
       if (status == SlideStatus.dragStart) {
         screenShotController.generateImage(null);
       }
     });
+    super.initState();
   }
 
   @override

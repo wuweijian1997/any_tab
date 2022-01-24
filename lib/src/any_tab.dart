@@ -2,13 +2,13 @@ import 'package:any_tab/any_tab.dart';
 import 'package:flutter/material.dart';
 
 class AnyTab extends StatefulWidget {
-  final AnyTabController anyTabController;
+  final AnyTabController? anyTabController;
   final AnyTabDelegate anyTabDelegate;
 
   AnyTab({
-    Key key,
+    Key? key,
     this.anyTabController,
-    this.anyTabDelegate,
+    required this.anyTabDelegate,
   }) : super(key: key);
 
   @override
@@ -19,18 +19,16 @@ class _AnyTabState extends State<AnyTab>
     with SingleTickerProviderStateMixin {
   AnyTabDelegate get anyTabDelegate => widget.anyTabDelegate;
 
-  AnyTabController _anyTabController;
-
-  AnyTabController get anyTabController => widget.anyTabController;
+  late AnyTabController _anyTabController;
 
   @override
   void initState() {
-    super.initState();
-    _anyTabController = anyTabController ??
+    _anyTabController = widget.anyTabController ??
         AnyTabController(length: anyTabDelegate.length, vsync: this);
     _anyTabController.addListener(() {
       setState(() {});
     });
+    super.initState();
   }
 
   @override
@@ -50,7 +48,7 @@ class _AnyTabState extends State<AnyTab>
 
   @override
   void dispose() {
-    _anyTabController?.dispose();
+    _anyTabController.dispose();
     super.dispose();
   }
 }

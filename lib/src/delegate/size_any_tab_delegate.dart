@@ -2,7 +2,7 @@ import 'package:any_tab/any_tab.dart';
 import 'package:flutter/material.dart';
 
 class SizeAnyTabDelegate extends AnyTabDelegate {
-  SizeAnyTabDelegate({List<Widget> tabs}) : super(tabs: tabs);
+  SizeAnyTabDelegate({required List<Widget> tabs}) : super(tabs: tabs);
 
   @override
   Widget build(

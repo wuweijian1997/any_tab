@@ -1,6 +1,5 @@
 import 'package:any_tab/any_tab.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 typedef TabSlideStatusListener = void Function(SlideStatus status);
 
@@ -30,13 +29,12 @@ mixin TabSlideStatusListenerMixin {
         if (_statusListeners.contains(listener))
           listener(status);
       } catch (exception, stack) {
-        InformationCollector collector;
         FlutterError.reportError(FlutterErrorDetails(
             exception: exception,
             stack: stack,
             library: 'animation library',
             context: ErrorDescription('while notifying status listeners for $runtimeType'),
-            informationCollector: collector
+            informationCollector: null
         ));
       }
     }

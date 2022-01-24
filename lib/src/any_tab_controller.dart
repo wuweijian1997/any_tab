@@ -5,7 +5,7 @@ class AnyTabController with TabSlideStatusListenerMixin {
   static const double PERCENT_PER_MILLISECOND = 0.001;
 
   AnyTabController({
-    @required TickerProvider vsync,
+    required TickerProvider vsync,
     length,
     int initialIndex = 0,
     this.slideSuccessProportion = .5,
@@ -67,9 +67,7 @@ class AnyTabController with TabSlideStatusListenerMixin {
 
   void animateTo(int nextPage,
       {Curve curve = Curves.ease, Duration duration = kTabScrollDuration}) {
-    assert(nextPage != null);
     assert(nextPage >= 0 && (nextPage < length || length == 0));
-    assert(duration != null || curve == null);
     if (nextPage == _index || length < 2) return;
     _nextPageIndex = nextPage;
     _animationController.duration = duration;
@@ -110,12 +108,12 @@ class AnyTabController with TabSlideStatusListenerMixin {
 
   ///开始拖动
   onDragStart(SlideUpdate slideUpdate) {
-    dragStartOffset = slideUpdate.dragStart;
+    dragStartOffset = slideUpdate.dragStart ?? Offset.zero;
   }
 
   ///拖动中
   onDragging(SlideUpdate slideUpdate) {
-    _slideDirection = slideUpdate.direction;
+    _slideDirection = slideUpdate.direction ?? SlideDirection.none;
     if (_slideDirection == SlideDirection.leftToRight) {
       _nextPageIndex = previousPage;
       _isNextPage = false;
@@ -125,7 +123,7 @@ class AnyTabController with TabSlideStatusListenerMixin {
     } else {
       _nextPageIndex = index;
     }
-    value = slideUpdate.slidePercent;
+    value = slideUpdate.slidePercent ?? 0;
   }
 
   ///拖动结束,开始动画.两种情况,根据滑动比例判断 < 0.5 -切换到下一页, >=0.5-回退到当前页.
@@ -134,7 +132,7 @@ class AnyTabController with TabSlideStatusListenerMixin {
   }
 
   ///动画开始
-  onAnimatedStart({SlideUpdate slideUpdate}) {
+  onAnimatedStart({required SlideUpdate slideUpdate}) {
     Duration duration;
     _isSlideSuccess = value >= slideSuccessProportion;
     if (_isSlideSuccess) {
@@ -165,6 +163,6 @@ class AnyTabController with TabSlideStatusListenerMixin {
   }
 
   void dispose() {
-    _animationController?.dispose();
+    _animationController.dispose();
   }
 }

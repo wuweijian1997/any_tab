@@ -6,8 +6,8 @@ class AnyTabDrag extends StatefulWidget {
   final AnyTabController anyTabController;
 
   AnyTabDrag({
-    this.child,
-    this.anyTabController,
+    required this.child,
+    required this.anyTabController,
   });
 
   @override
@@ -18,7 +18,7 @@ class _AnyTabDragState extends State<AnyTabDrag> {
   static const FULL_TRANSITION_PX = 300;
 
   ///拖动触摸开始的点
-  Offset dragStart;
+  Offset? dragStart;
 
   Widget get child => widget.child;
 
@@ -29,7 +29,7 @@ class _AnyTabDragState extends State<AnyTabDrag> {
     dragStart = details.globalPosition;
     anyTabController.onSlideUpdate(SlideUpdate(
         slideStatus: SlideStatus.dragStart,
-        dragStart: dragStart,));
+        dragStart: dragStart!,));
   }
 
   ///横向拖动中 ing
@@ -43,7 +43,7 @@ class _AnyTabDragState extends State<AnyTabDrag> {
       final newPosition = details.globalPosition;
 
       ///拖动距离,如果大于零是向右拖动,如果小于零是向左拖动
-      final dx = newPosition.dx - dragStart.dx;
+      final dx = newPosition.dx - dragStart!.dx;
       slidePercent = (dx / FULL_TRANSITION_PX).abs().clamp(0.0, 1.0).toDouble();
       if (dx > 0) {
         slideDirection = SlideDirection.leftToRight;

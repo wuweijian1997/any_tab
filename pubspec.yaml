@@ -1,11 +1,10 @@
 name: any_tab
 description: Flutter any tab.
-version: 0.0.2
+version: 1.0.0
 homepage: https://github.com/wuweijian1997/any_tab
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  sdk: ">=2.15.1 <3.0.0"
 
 dependencies:
   flutter:

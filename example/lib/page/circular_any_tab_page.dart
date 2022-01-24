@@ -12,12 +12,12 @@ class CircularAnyTabPage extends StatefulWidget {
 
 class _CircularAnyTabPageState extends State<CircularAnyTabPage>
     with SingleTickerProviderStateMixin {
-  AnyTabController anyTabController;
+  late AnyTabController anyTabController;
 
   @override
   void initState() {
-    super.initState();
     anyTabController = AnyTabController(vsync: this, length: 3);
+    super.initState();
   }
 
   @override
